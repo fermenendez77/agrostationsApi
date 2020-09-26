@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 final class Station : Codable {
@@ -35,7 +35,9 @@ final class Station : Codable {
     }
 }
 
-extension Station : MySQLModel {}
+extension Station : PostgreSQLModel {
+    typealias Database = PostgreSQLDatabase
+}
 extension Station : Content {}
 extension Station : Migration {}
 extension Station : Parameter {}

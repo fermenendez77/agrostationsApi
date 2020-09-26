@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 
 final class Measurement : Codable {
@@ -38,7 +38,9 @@ final class Measurement : Codable {
     }
 }
 
-extension Measurement : MySQLModel {}
+extension Measurement : PostgreSQLModel {
+    typealias Database = PostgreSQLDatabase
+}
 extension Measurement : Content {}
 extension Measurement : Migration {}
 extension Measurement : Parameter {}

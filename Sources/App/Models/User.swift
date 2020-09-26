@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import FluentMySQL
+import FluentPostgreSQL
 import Vapor
 import Authentication
 
@@ -69,7 +69,10 @@ extension User : TokenAuthenticatable {
     typealias TokenType = Token
 }
 
-extension User : MySQLUUIDModel {}
+extension User : PostgreSQLUUIDModel {
+    
+    typealias Database = PostgreSQLDatabase
+}
 extension User : Content {}
 extension User : Migration {}
 extension User : Parameter {}
